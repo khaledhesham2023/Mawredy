@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.196" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_animal_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_animals_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_app_icon.xml" value="0.196" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_app_logo.xml" value="0.196" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_applogo.xml" value="0.2835" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_birds_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_diseases_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_famous_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_fish_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_flowers_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_fruits_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_gems_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_islamic_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_islamics_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_no_image_available.xml" value="0.135" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_proverbs_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/drawable/ic_vegetables_logo.xml" value="0.1" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/layout/activity_authentication.xml" value="0.22" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/layout/activity_splash.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Tofaha/Mawardy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

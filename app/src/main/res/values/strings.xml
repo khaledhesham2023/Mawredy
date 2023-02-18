@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Mawredy</string>
+    <string name="welcome_statement">Welcome to Mawrdy App</string>
+    <string name="login_mawardy">LOG IN USING A MAWARDY ACCOUNT</string>
+    <string name="login_google">LOG IN USING A GOOGLE ACCOUNT</string>
+    <string name="login_facebook">LOG IN USING A FACEBOOK ACCOUNT</string>
+
+    <string name="facebook_application_id" translatable="false">APP_ID</string>
+    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
+    <string name="facebook_login_protocol_scheme" translatable="false">fbAPP_ID</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login">Log In</string>
+    <string name="start">Start</string>
+    <string name="mawrady_login">Mawardy Log in</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="log_out">Log out</string>
+    <string name="confirm_logout">Are you sure you want to log out ?</string>
+    <string name="logout">Log out</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_a_category">Select a Category</string>
+    <string name="mute">mute</string>
+    <string name="unmute">unmute</string>
+</resources>

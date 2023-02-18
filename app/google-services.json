@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "907450188237",
+    "project_id": "mawredy-aa94a",
+    "storage_bucket": "mawredy-aa94a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907450188237:android:f0dbd9120693e799214484",
+        "android_client_info": {
+          "package_name": "com.udacity.mawardy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907450188237-m2ipk8gaqv037am2lg105nr1p98s3pab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.udacity.mawardy",
+            "certificate_hash": "4f0d63abfe32aef4d9672586608ad46e0a5fa961"
+          }
+        },
+        {
+          "client_id": "907450188237-rkehou50che2lqqp6mmqi85crhekp8ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3LDkOAZ0tqfiv5qS8YEou2kC-djVQ3SI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907450188237-rkehou50che2lqqp6mmqi85crhekp8ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

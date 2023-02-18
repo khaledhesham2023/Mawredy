@@ -9,16 +9,20 @@ import com.udacity.mawardy.R
 import com.udacity.mawardy.databinding.ItemCategoryBinding
 import com.udacity.mawardy.models.Category
 
-class CategoryAdapter(private var data: List<Category>) :
+class CategoryAdapter(private var data: List<Category>, private val callback: CategoryCallback) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     inner class CategoryViewHolder(val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        init {
+            binding.root.setOnClickListener {
+                callback.onCategoryClicked(data[layoutPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        Log.i("TAGG","OnCreateViewHolder called")
+        Log.i("TAGG", "OnCreateViewHolder called")
         return CategoryViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
@@ -30,15 +34,15 @@ class CategoryAdapter(private var data: List<Category>) :
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        Log.i("TAGG","OnBindViewHolder called")
+        Log.i("TAGG", "OnBindViewHolder called")
         holder.binding.category = data[position]
     }
 
     override fun getItemCount(): Int = data.size
 
-    fun updateDataSet(data: List<Category>){
+    fun updateDataSet(data: List<Category>) {
         this.data = data
         notifyDataSetChanged()
-        Log.i("TAGG","updateDataSet called")
+        Log.i("TAGG", "updateDataSet called")
     }
 }

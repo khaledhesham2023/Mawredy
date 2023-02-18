@@ -8,6 +8,11 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.udacity.mawardy.category.CategoryFragment"
-        android:label="Categories"
+        android:label="@string/categories"
         tools:layout="@layout/fragment_category"/>
+    <fragment
+        android:id="@+id/topicsFragment"
+        android:name="com.udacity.mawardy.topics.TopicsFragment"
+        android:label="@string/topics"
+        tools:layout="@layout/fragment_topics"/>
 </navigation>

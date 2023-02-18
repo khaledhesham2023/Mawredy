@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 
 class DisplayManager {
     companion object {
+
         fun showConfirmationDialog(
             context: Context,
             message: Int,
@@ -19,5 +20,8 @@ class DisplayManager {
                 .create()
             alertDialog.show()
         }
+
+
+
     }
 }

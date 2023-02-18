@@ -9,7 +9,7 @@ import com.udacity.mawardy.R
 
 @BindingAdapter("imgUrl")
 fun loadImageFromUrl(imageView: ImageView, url: String) {
-//    Picasso.get().load(url).into(imageView)
+//    Picasso.get().load(url).placeholder(R.drawable.ic_app_logo).into(imageView)
     Glide.with(imageView.context).load(url).placeholder(R.drawable.ic_app_logo).into(imageView)
 }
 

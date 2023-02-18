@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
@@ -17,7 +18,7 @@ import com.udacity.mawardy.models.Category
 import com.udacity.mawardy.models.CategoryItem
 
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryCallback {
     override val layout: Int
         get() = R.layout.fragment_category
 
@@ -28,19 +29,21 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
         super.onViewCreated(view, savedInstanceState)
         loadingDialog.show()
         list = ArrayList()
-        adapter = CategoryAdapter(ArrayList())
-        viewBinding.categoriesList.layoutManager = GridLayoutManager(requireContext(),2)
+        adapter = CategoryAdapter(ArrayList(), this)
+        viewBinding.categoriesList.layoutManager = GridLayoutManager(requireContext(), 2)
         viewBinding.categoriesList.adapter = adapter
         viewBinding.lifecycleOwner = this
         reference = FirebaseDatabase.getInstance().getReference("categories")
         reference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                    val title = snapshot.child("title").getValue(String::class.java)
-                    val image = snapshot.child("image").getValue(String::class.java)
-                Log.i("TAGG","title is $title ,image is $image")
-                val category = Category(null,null,image,null,title)
+                val title = snapshot.child("title").getValue(String::class.java)
+                val image = snapshot.child("image").getValue(String::class.java)
+                val background = snapshot.child("background").getValue(String::class.java)
+                val categoryId = snapshot.child("categoryId").getValue(Long::class.java)
+
+                Log.i("TAGG", "image is $image")
+                val category = Category(background, categoryId, image,null, title)
                 list.add(category)
-                Log.i("TAGG","number of items: ${list.size}")
                 adapter.updateDataSet(list)
                 loadingDialog.dismiss()
             }
@@ -58,14 +61,17 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
+                loadingDialog.dismiss()
             }
         })
 
 
-
     }
 
+    override fun onCategoryClicked(category: Category) {
+        findNavController()
+    }
 
 
 }

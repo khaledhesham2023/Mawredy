@@ -21,4 +21,6 @@
     <string name="select_a_category">Select a Category</string>
     <string name="mute">mute</string>
     <string name="unmute">unmute</string>
+    <string name="categories">Categories</string>
+    <string name="topics">Topics</string>
 </resources>

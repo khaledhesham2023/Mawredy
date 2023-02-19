@@ -9,10 +9,18 @@
         android:id="@+id/categoryFragment"
         android:name="com.udacity.mawardy.category.CategoryFragment"
         android:label="@string/categories"
-        tools:layout="@layout/fragment_category"/>
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_topicsFragment"
+            app:destination="@id/topicsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/topicsFragment"
         android:name="com.udacity.mawardy.topics.TopicsFragment"
         android:label="@string/topics"
-        tools:layout="@layout/fragment_topics"/>
+        tools:layout="@layout/fragment_topics">
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
 </navigation>

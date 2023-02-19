@@ -11,8 +11,14 @@ class TopicsFragment : BaseFragment<FragmentTopicsBinding>() {
     override val layout: Int
         get() = R.layout.fragment_topics
 
+    private lateinit var title:String
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        title = TopicsFragmentArgs.fromBundle(requireArguments()).title
+
+        viewBinding.lifecycleOwner = this
+        viewBinding.topicTitle.text = title
 
     }
 }

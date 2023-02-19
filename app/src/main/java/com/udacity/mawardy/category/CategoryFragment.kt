@@ -42,7 +42,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryCallba
                 val categoryId = snapshot.child("categoryId").getValue(Long::class.java)
 
                 Log.i("TAGG", "image is $image")
-                val category = Category(background, categoryId, image,null, title)
+                val category = Category(background, categoryId, image, null, title)
                 list.add(category)
                 adapter.updateDataSet(list)
                 loadingDialog.dismiss()
@@ -70,7 +70,11 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryCallba
     }
 
     override fun onCategoryClicked(category: Category) {
-        findNavController()
+        findNavController().navigate(
+            CategoryFragmentDirections.actionCategoryFragmentToTopicsFragment(
+                category.title!!
+            )
+        )
     }
 
 

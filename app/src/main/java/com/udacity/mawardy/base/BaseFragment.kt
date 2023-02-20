@@ -28,6 +28,7 @@ abstract class BaseFragment<VB:ViewDataBinding> : Fragment() {
         viewBinding = DataBindingUtil.inflate(inflater,layout,container,false)
         sharedPreferencesRepo = SharedPreferencesRepo(requireContext())
         loadingDialog = LoadingDialog(requireContext())
+        loadingDialog.show()
         return viewBinding.root
     }
 }

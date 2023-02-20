@@ -4,6 +4,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -49,6 +50,7 @@ dependencies {
     implementation "com.google.firebase:firebase-database-ktx:$firebaseDatabaseVersion"
     implementation "com.firebaseui:firebase-ui-auth:$firebaseUIAuthVersion"
     implementation "com.facebook.android:facebook-login:$facebookLoginVersion"
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
     // Unit tests
     testImplementation "junit:junit:$junitTestVersion"
     // Instrumented tests
@@ -71,7 +73,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     // Also add the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
-    // CircleImageView
-    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
+}
+kapt {
+    correctErrorTypes = true
 }

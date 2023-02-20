@@ -17,38 +17,62 @@
             android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/welcome_message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1"
             app:srcCompat="@drawable/ic_app_logo" />
 
         <TextView
             android:id="@+id/welcome_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintVertical_bias="0.1"
             android:fontFamily="@font/croissant_one"
             android:text="@string/welcome_statement"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/authentication_title_text_size"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mawardy_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo"/>
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <Button
-            android:id="@+id/login"
-            android:layout_width="286dp"
+            android:id="@+id/mawardy_button"
+            android:layout_width="329dp"
             android:layout_height="64dp"
-            android:text="@string/start"
+            android:text="@string/mawrady_login"
+            android:textSize="@dimen/button_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/google_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_message"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <Button
+            android:id="@+id/google_button"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="@string/login_google"
+            android:theme="@style/FirebaseUI.Button.AccountChooser.GoogleButton"
+            app:layout_constraintBottom_toTopOf="@+id/facebook_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mawardy_button"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <Button
+            android:id="@+id/facebook_button"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/login_facebook"
+            android:theme="@style/FirebaseUI.Button.AccountChooser.FacebookButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/welcome_message"
-            app:layout_constraintWidth_percent="0.7"
-            android:textSize="@dimen/button_text_size"/>
+            app:layout_constraintTop_toBottomOf="@+id/google_button"
+            app:layout_constraintWidth_percent="0.8" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

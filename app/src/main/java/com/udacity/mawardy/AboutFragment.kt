@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.udacity.mawardy.base.BaseFragment
 import com.udacity.mawardy.databinding.FragmentAboutBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AboutFragment : BaseFragment<FragmentAboutBinding>() {
     override val layout: Int
         get() = R.layout.fragment_about

@@ -20,6 +20,7 @@ class TopicDetailsFragment : BaseFragment<FragmentTopicDetailsBinding>() {
         val topic = TopicDetailsFragmentArgs.fromBundle(requireArguments()).topic
         viewBinding.lifecycleOwner = this
         viewBinding.topic = topic
+        loadingDialog.dismiss()
 
     }
 

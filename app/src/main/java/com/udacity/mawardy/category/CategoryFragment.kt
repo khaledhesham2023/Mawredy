@@ -4,63 +4,38 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.database.*
 import com.udacity.mawardy.R
 import com.udacity.mawardy.base.BaseFragment
+import com.udacity.mawardy.base.BaseFragmentWithViewModel
 import com.udacity.mawardy.databinding.FragmentCategoryBinding
+import com.udacity.mawardy.datasource.firebase.DataSource
 import com.udacity.mawardy.models.Category
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryCallback {
+@AndroidEntryPoint
+class CategoryFragment : BaseFragmentWithViewModel<FragmentCategoryBinding, CategoryViewModel>(),
+    CategoryCallback {
     override val layout: Int
         get() = R.layout.fragment_category
 
+    override val viewModelClass: Class<CategoryViewModel>
+        get() = CategoryViewModel::class.java
+
     private lateinit var adapter: CategoryAdapter
-    private lateinit var reference: DatabaseReference
     private lateinit var list: ArrayList<Category>
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadingDialog.show()
-        list = ArrayList()
-        adapter = CategoryAdapter(ArrayList(), this)
-        viewBinding.categoriesList.layoutManager = GridLayoutManager(requireContext(), 2)
-        viewBinding.categoriesList.adapter = adapter
+        configureTheAdapter()
         viewBinding.lifecycleOwner = this
-        reference = FirebaseDatabase.getInstance().getReference("categories")
-        reference.addChildEventListener(object : ChildEventListener {
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val title = snapshot.child("title").getValue(String::class.java)
-                val image = snapshot.child("image").getValue(String::class.java)
-                val background = snapshot.child("background").getValue(String::class.java)
-                val categoryId = snapshot.child("categoryId").getValue(Long::class.java)
-
-                Log.i("TAGG", "image is $image")
-                val category = Category(background, categoryId, image, null, title)
-                list.add(category)
-                adapter.updateDataSet(list)
-                loadingDialog.dismiss()
-            }
-
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-//                TODO("Not yet implemented")
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-//                TODO("Not yet implemented")
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-//                TODO("Not yet implemented")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
-                loadingDialog.dismiss()
-            }
-        })
-
+        viewModel.getCategories(FirebaseDatabase.getInstance().getReference("categories"),
+            ArrayList(),adapter
+        )
 
     }
 
@@ -70,6 +45,19 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryCallba
                 category.title!!
             )
         )
+    }
+
+    private fun configureTheAdapter() {
+        adapter = CategoryAdapter(ArrayList(), this)
+        viewBinding.categoriesList.layoutManager = GridLayoutManager(requireContext(), 2)
+        viewBinding.categoriesList.adapter = adapter
+    }
+
+    override fun setupObservers() {
+        viewModel.list.observe(viewLifecycleOwner, Observer {
+            adapter.updateDataSet(it)
+            loadingDialog.dismiss()
+        })
     }
 
 

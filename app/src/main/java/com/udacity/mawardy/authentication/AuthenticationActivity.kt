@@ -12,7 +12,9 @@ import com.udacity.mawardy.base.BaseActivity
 import com.udacity.mawardy.databinding.ActivityAuthenticationBinding
 import com.udacity.mawardy.main.MainActivity
 import com.udacity.mawardy.utils.Constants
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AuthenticationActivity : BaseActivity<ActivityAuthenticationBinding>() {
     override val layout: Int
         get() = R.layout.activity_authentication
@@ -20,28 +22,33 @@ class AuthenticationActivity : BaseActivity<ActivityAuthenticationBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding.login.setOnClickListener {
-            login()
+        viewBinding.mawardyButton.setOnClickListener {
+            loginUsingMawredy()
+        }
+
+        viewBinding.googleButton.setOnClickListener {
+            loginUsingGoogle()
         }
     }
 
-    private fun login() {
+    private fun loginUsingMawredy() {
         val providers = mutableListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.FacebookBuilder().build()
+            AuthUI.IdpConfig.EmailBuilder().build()
         )
 
-        val signInIntent = AuthUI.getInstance().createSignInIntentBuilder().setIsSmartLockEnabled(false)
+        val signInIntent =
+            AuthUI.getInstance().createSignInIntentBuilder().setIsSmartLockEnabled(false)
                 .setTheme(R.style.Theme_Mawardy).setAvailableProviders(providers)
                 .setAuthMethodPickerLayout(
                     AuthMethodPickerLayout.Builder(R.layout.auth_layout)
-                        .setEmailButtonId(R.id.mawardy_button).setGoogleButtonId(R.id.google_button)
-                        .setFacebookButtonId(R.id.facebook_button).build()
-                ).build()
+                        .setEmailButtonId(R.id.mawardy_button).build()).build()
 
-            startActivityForResult(signInIntent, Constants.REQUEST_CODE)
+        startActivityForResult(signInIntent, Constants.REQUEST_CODE)
 
+
+    }
+
+    private fun loginUsingGoogle(){
 
     }
 

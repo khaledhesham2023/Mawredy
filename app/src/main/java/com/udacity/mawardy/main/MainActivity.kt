@@ -20,7 +20,9 @@ import com.udacity.mawardy.authentication.AuthenticationActivity
 import com.udacity.mawardy.base.BaseActivity
 import com.udacity.mawardy.databinding.ActivityMainBinding
 import com.udacity.mawardy.utils.DisplayManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val layout: Int
         get() = R.layout.activity_main
@@ -59,7 +61,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         })
 
         mediaPlayer = MediaPlayer.create(this, R.raw.app_music)
-        startMusic()
 
     }
 

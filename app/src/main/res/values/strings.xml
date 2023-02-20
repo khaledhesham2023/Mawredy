@@ -23,4 +23,11 @@
     <string name="unmute">unmute</string>
     <string name="categories">Categories</string>
     <string name="topics">Topics</string>
+    <string name="details">Details</string>
+    <string name="info">The Mawardy App is an application which is an encyclopedia about different topics of different categories either: Animals, famous persons, birds, plants...etc.
+        Sources:
+        1) Wikipedia, the free encyclopedia.
+        2) Britannica, the British encyclopedia.
+        3) El-Mawred books, by Mounir Al-Baalbaky.</string>
+    <string name="about">About</string>
 </resources>

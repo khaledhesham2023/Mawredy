@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.firebase.ui.auth.AuthUI
 import com.udacity.mawardy.R
 import com.udacity.mawardy.authentication.AuthenticationActivity
@@ -38,6 +41,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         appBarConfiguration = AppBarConfiguration.Builder(R.id.categoryFragment).build()
 
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        viewBinding.bottomNavView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener(object :NavController.OnDestinationChangedListener{
+            override fun onDestinationChanged(
+                controller: NavController,
+                destination: NavDestination,
+                arguments: Bundle?
+            ) {
+                if (destination.id == R.id.topicsFragment || destination.id == R.id.topicDetailsFragment){
+                    viewBinding.bottomNavView.visibility = View.GONE
+                } else {
+                    viewBinding.bottomNavView.visibility = View.VISIBLE
+                }
+            }
+        })
 
         mediaPlayer = MediaPlayer.create(this, R.raw.app_music)
         startMusic()
